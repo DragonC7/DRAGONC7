@@ -1,142 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dragon.C7 Media</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #0a0f24, #10182f);
-            color: #eef3ff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dragon.C7 Tube</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+    }
 
-        h1 {
-            margin-top: 40px;
-            color: #ff007a;
-            text-shadow: 0 0 15px #ff007a;
-        }
+    /* HEADER */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 25px;
+      background: #181818;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-        .upload-box {
-            margin-top: 30px;
-            padding: 20px;
-            background: #10182f;
-            border: 2px dashed #00eaff;
-            border-radius: 15px;
-            text-align: center;
-            width: 80%;
-            max-width: 500px;
-        }
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: #ff0066;
+    }
 
-        input[type=file] {
-            margin-top: 10px;
-        }
+    /* SEARCH */
+    .search-box {
+      display: flex;
+      align-items: center;
+      width: 45%;
+    }
 
-        button {
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: #ff007a;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
+    .search-box input {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 20px 0 0 20px;
+      border: none;
+      outline: none;
+      background: #303030;
+      color: white;
+    }
 
-        .video-list {
-            margin-top: 40px;
-            width: 90%;
-            max-width: 700px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+    .search-box button {
+      padding: 8px 15px;
+      border-radius: 0 20px 20px 0;
+      border: none;
+      background: #ff0066;
+      color: #fff;
+      cursor: pointer;
+    }
 
-        .video-item {
-            background: #10182f;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #00eaff;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
+    /* VIDEO GRID */
+    .videos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 25px;
+    }
 
-        video {
-            width: 100%;
-            border-radius: 10px;
-        }
+    .card {
+      background: #1a1a1a;
+      border-radius: 10px;
+      padding: 10px;
+      transition: 0.2s;
+    }
 
-        .delete-btn {
-            background: #ff0033;
-            padding: 5px 10px;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            align-self: flex-end;
-        }
-    </style>
+    .card:hover {
+      transform: scale(1.03);
+      background: #222;
+    }
+
+    .thumb {
+      width: 100%;
+      height: 170px;
+      background: #333;
+      border-radius: 8px;
+    }
+
+    .title {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .uploader {
+      font-size: 14px;
+      color: #bbb;
+    }
+
+    /* UPLOAD BTN */
+    .upload-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #ff0066;
+      color: white;
+      padding: 15px 22px;
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: 18px;
+      box-shadow: 0 0 15px #ff0066;
+      transition: 0.2s;
+    }
+
+    .upload-btn:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
-    <h1>Dragon.C7 Media</h1>
-    <div class="upload-box">
-        <h2>Upload Video</h2>
-        <input type="file" id="videoInput" accept="video/*">
-        <button onclick="saveVideo()">Upload</button>
+
+  <header>
+    <div class="logo">Dragon.C7 Tube</div>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search videos..." />
+      <button>Search</button>
+    </div>
+  </header>
+
+  <div class="videos">
+    <div class="card">
+      <div class="thumb"></div>
+      <div class="title">My First Edit 🔥</div>
+      <div class="uploader">By Dragon.C7</div>
     </div>
 
-    <div class="video-list" id="videoList"></div>
+    <div class="card">
+      <div class="thumb"></div>
+      <div class="title">Epic AMV One Piece ⚔️</div>
+      <div class="uploader">By Dragon.C7</div>
+    </div>
 
-<script>
-    function saveVideo() {
-        const input = document.getElementById('videoInput');
-        const file = input.files[0];
-        if (!file) return alert('Choose a video first!');
+    <div class="card">
+      <div class="thumb"></div>
+      <div class="title">Ninjago Edit New Style ⚡</div>
+      <div class="uploader">By Dragon.C7</div>
+    </div>
+  </div>
 
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const stored = JSON.parse(localStorage.getItem('dragonc7_videos') || '[]');
-            stored.push(e.target.result);
-            localStorage.setItem('dragonc7_videos', JSON.stringify(stored));
-            displayVideos();
-        };
-        reader.readAsDataURL(file);
-    }
+  <div class="upload-btn">Upload Video</div>
 
-    function displayVideos() {
-        const list = document.getElementById('videoList');
-        list.innerHTML = '';
-        const stored = JSON.parse(localStorage.getItem('dragonc7_videos') || '[]');
-
-        stored.forEach((src, index) => {
-            const item = document.createElement('div');
-            item.className = 'video-item';
-            const vid = document.createElement('video');
-            vid.src = src;
-            vid.controls = true;
-
-            const delBtn = document.createElement('button');
-            delBtn.textContent = 'Delete';
-            delBtn.className = 'delete-btn';
-            delBtn.onclick = () => {
-                stored.splice(index, 1);
-                localStorage.setItem('dragonc7_videos', JSON.stringify(stored));
-                displayVideos();
-            };
-
-            item.appendChild(vid);
-            item.appendChild(delBtn);
-            list.appendChild(item);
-        });
-    }
-
-    displayVideos();
-</script>
 </body>
 </html>
